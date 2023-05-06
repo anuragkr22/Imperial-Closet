@@ -25,10 +25,7 @@ const SigninForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { user } = await signInAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
+      await signInAuthUserWithEmailAndPassword(email, password);
 
       setFormFields(defaultFormField);
     } catch (error) {
@@ -66,6 +63,7 @@ const SigninForm = () => {
           value={email}
           required
           onChange={handleChange}
+          autocomplete="email"
         />
 
         <FormInput
@@ -75,10 +73,15 @@ const SigninForm = () => {
           value={password}
           required
           onChange={handleChange}
+          autocomplete="current-password"
         />
         <div className="buttons-container">
           <Button type="submit">Sign in</Button>
-          <Button type="button" buttonType={BUTTON_TYPE_CLASSES.google} onClick={signinWithGoogle}>
+          <Button
+            type="button"
+            buttonType={BUTTON_TYPE_CLASSES.google}
+            onClick={signinWithGoogle}
+          >
             Google Sign in
           </Button>
         </div>
