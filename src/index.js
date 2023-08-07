@@ -5,8 +5,8 @@ import reportWebVitals from "./reportWebVitals";
 import { PersistGate } from "redux-persist/integration/react";
 import { Elements } from "@stripe/react-stripe-js";
 
-import "./index.scss";
 import App from "./App";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 import { BrowserRouter } from "react-router-dom";
 
@@ -28,4 +28,5 @@ root.render(
   </React.StrictMode>
 );
 
+serviceWorkerRegistration.register();
 reportWebVitals();
